@@ -1,17 +1,45 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import { faker } from "@faker-js/faker";
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+    return (
+        <div className='ui container comments'>
+           <ApprovalCard>
+        <div>
+          <h4>Warning!!!</h4>
+          Are you sure yo want to continue
+        </div>
+      </ApprovalCard>
+      <ApprovalCard >
+        <CommentDetail
+            author=" Maxwell john"
+            timeAgo="Today at 6:00pm"
+            text="Learnt alot thanks"
+            image={faker.image.avatar()}
+        />
+      </ApprovalCard>
+      <ApprovalCard >
+        <CommentDetail
+            author="juliana Gothar"
+            timeAgo="Today at 8:09pm"
+            text="Interestibg piece"
+            image={faker.image.avatar()}
+        />
+      </ApprovalCard>
+      <ApprovalCard >
+        <CommentDetail
+            author="white Broom"
+            timeAgo="Today at 7:31pm"
+            text="Awesome write up bro"
+            image={faker.image.avatar()}
+        />
+      </ApprovalCard>
+        </div>
+    );
+};
+
+ReactDOM.render(<App />, document.querySelector('#root'));
